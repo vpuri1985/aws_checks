@@ -19,12 +19,12 @@ aws s3 ls
 
 # list ec2 instance using Json Parse
 echo "Print list of EC2 buckets"
-aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId' > resourcetracker.txt
 
 # List aws lambda functions
 echo "Print list of AWS Lambda functions"
-aws lambda list-functions
+aws lambda list-functions >> resourcetracker.txt
 
 # list iam users using Json Parse
 echo "Print list of iam users"
-aws iam list-users | jq '.Users[].UserName'
+aws iam list-users | jq '.Users[].UserName' >> resourcetracker.txt
